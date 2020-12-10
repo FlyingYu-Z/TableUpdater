@@ -9,7 +9,7 @@ A framework of creating or updating mysql table
 <dependency>
    <groupId>com.github.FlyingYu-Z</groupId>
    <artifactId>TableUpdater</artifactId>
-   <version>1.0</version>
+   <version>1.0.1</version>
 </dependency>
 
 ````
