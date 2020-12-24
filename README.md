@@ -4,15 +4,34 @@ A framework of creating or updating mysql table
 
 **usage:**
 
-````aidl
+````
+allprojects {
+repositories {
+...
+maven { url 'https://jitpack.io' }
+}
+}
+````
 
+````aidl
+Maven:
 <dependency>
    <groupId>com.github.FlyingYu-Z</groupId>
    <artifactId>TableUpdater</artifactId>
-   <version>1.0.1</version>
+   <version>1.0.2</version>
 </dependency>
 
 ````
+
+
+````aidl
+Gradle:
+dependencies {
+	        implementation 'com.github.FlyingYu-Z:TableUpdater:Tag'
+	}
+
+````
+
 
 ````aidl
 
