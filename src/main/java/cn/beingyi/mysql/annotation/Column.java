@@ -29,8 +29,6 @@ public @interface Column {
 
     String type();//字段类型及长度
 
-    boolean isId() default false;
-
     boolean autoGen() default false;
 
     boolean isKey() default false;

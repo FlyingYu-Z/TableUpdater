@@ -9,16 +9,17 @@ import java.util.List;
 public class ColumnUtils {
 
 
-    public static Column getKeyColumn(Class<?> clazz){
+    public static List<Column> getKeyColumn(Class<?> clazz){
+        List<Column> columnList=new ArrayList<>();
         Field[] fields = clazz.getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
             Field field = fields[i];
             Column column = field.getAnnotation(Column.class);
             if(column!=null && column.isKey()){
-                return column;
+                columnList.add(column);
             }
         }
-        return null;
+        return columnList;
     }
 
 

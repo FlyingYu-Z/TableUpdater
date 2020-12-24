@@ -4,16 +4,13 @@ import cn.beingyi.mysql.utils.Build;
 
 public class Ready {
 
-    static Ready ready;
     private String DbUrl;//数据库地址
     private String UserName;
     private String PassWord;
+    private String CharacterSet = "utf8";
+    private String Collation = "utf8_general_ci";
 
-    public static Ready getInstance() {
-        if(ready==null){
-            ready=new Ready();
-        }
-        return ready;
+    public Ready() {
     }
 
     public String getDbUrl() {
@@ -38,5 +35,21 @@ public class Ready {
 
     public void setPassWord(String passWord) {
         PassWord = passWord;
+    }
+
+    public String getCharacterSet() {
+        return CharacterSet;
+    }
+
+    public void setCharacterSet(String characterSet) {
+        CharacterSet = characterSet;
+    }
+
+    public String getCollation() {
+        return Collation;
+    }
+
+    public void setCollation(String collation) {
+        Collation = collation;
     }
 }

@@ -15,8 +15,8 @@ public class JDBCUtils {
         }
     }
     
-    public static Connection getConnection() throws Exception {
-        Connection connection = DriverManager.getConnection(ReadyCore.getReady().getDbUrl(), ReadyCore.getReady().getUserName(), ReadyCore.getReady().getPassWord());
+    public static Connection getConnection(ReadyCore readyCore) throws Exception {
+        Connection connection = DriverManager.getConnection(readyCore.getReady().getDbUrl(), readyCore.getReady().getUserName(), readyCore.getReady().getPassWord());
         return connection;
     }
     

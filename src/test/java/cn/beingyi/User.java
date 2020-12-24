@@ -7,11 +7,11 @@ import java.util.Date;
 
 @Table(name = "user")
 public class User {
-    @Column(name = "uid",type = "int(11)",isId = true,autoGen = false,isKey = true,defaultValue = "0")
+    @Column(name = "uid",type = "int(11)",autoGen = false,isKey = true,defaultValue = "0")
     private Integer uid;
 
 
-    @Column(name = "username",type = "varchar(20)")
+    @Column(name = "username",type = "varchar(20)",isKey = true)
     private Integer username;
 
     @Column(name = "password",type = "varchar(20)")
