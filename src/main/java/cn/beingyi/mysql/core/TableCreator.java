@@ -43,7 +43,8 @@ public class TableCreator {
         if (keyColumn.isKey()) {
             sql.append("  PRIMARY KEY (`" + keyColumn.name() + "`)").append("\n");
         }
-        sql.append(");");
+        sql.append("),\n");
+        sql.append("ENGINE=InnoDB DEFAULT CHARSET="+readyCore.getReady().getCharacterSet()+" ROW_FORMAT=DYNAMIC;");
 
         System.out.println(sql.toString());
 

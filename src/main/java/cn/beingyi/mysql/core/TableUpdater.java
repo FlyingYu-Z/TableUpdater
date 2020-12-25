@@ -44,7 +44,8 @@ public class TableUpdater {
             sqlBuilder.append("`"+column.name()+"`,");
         }
         sqlBuilder.deleteCharAt(sqlBuilder.length()-1);
-        sqlBuilder.append(");");
+        sqlBuilder.append("),\n");
+        sqlBuilder.append("ENGINE=InnoDB DEFAULT CHARSET="+readyCore.getReady().getCharacterSet()+" ROW_FORMAT=DYNAMIC;");
 
         String sql=sqlBuilder.toString();
         System.out.println(sql);

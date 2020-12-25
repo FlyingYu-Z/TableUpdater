@@ -18,7 +18,7 @@ Maven:
 <dependency>
    <groupId>com.github.FlyingYu-Z</groupId>
    <artifactId>TableUpdater</artifactId>
-   <version>1.0.2</version>
+   <version>tag</version>
 </dependency>
 
 ````
