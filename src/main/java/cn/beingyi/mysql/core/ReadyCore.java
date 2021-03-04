@@ -23,7 +23,7 @@ public class ReadyCore {
         try {
             Connection con = getConnection();
             DatabaseMetaData db = con.getMetaData();
-            ResultSet resultSet = db.getTables(null, null, null, new String[]{"TABLE"});
+            ResultSet resultSet = db.getTables(con.getCatalog(), null, null, new String[]{"TABLE"});
             while (resultSet.next()) {
                 tableNames.add(resultSet.getString(3));
             }
