@@ -45,6 +45,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name = "user")
+
+//@Table(name = "user",sql = "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
 public class User {
     @Column(name = "uid",type = "int(11)",autoGen = false,isKey = true,defaultValue = "0")
     private Integer uid;
