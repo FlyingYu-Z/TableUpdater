@@ -13,4 +13,12 @@ public class AnnoationUtils {
     }
 
 
+    public static String getTableSql(Class<?> clazz){
+        Table table=clazz.getAnnotation(Table.class);
+        if(table!=null){
+            return table.sql();
+        }
+        return null;
+    }
+
 }

@@ -42,16 +42,26 @@ public class ReadyCore {
                     super.run();
                     try {
                         String tableName = AnnoationUtils.getTableName(clazz);
+                        String sql = AnnoationUtils.getTableSql(clazz);
                         if (tableName == null || tableName.isEmpty()) {
                             throw new Exception("table name must not be empty");
                         }
-
                         //不存在则创建，再升级
                         if (!tableNames.contains(tableName)) {
                             new TableCreator(ReadyCore.this, clazz);
                         } else {
                             //如果表存在，则升级
                             new TableUpdater(ReadyCore.this, clazz);
+                        }
+                        if(sql!=null && !sql.isEmpty()){
+                            Connection con = getConnection();
+                            Statement stmt = con.createStatement();
+                            if (stmt.executeLargeUpdate(sql) == 0) {
+                                System.out.println("executed sql: "+sql);
+                            } else {
+                                System.err.println("failed to execute sql:"+sql);
+                            }
+                            JDBCUtils.closeResource(stmt, con);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
