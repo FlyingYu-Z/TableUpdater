@@ -15,6 +15,14 @@ maven { url 'https://jitpack.io' }
 
 ````aidl
 Maven:
+
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.23</version>
+</dependency>
+
 <dependency>
    <groupId>com.github.FlyingYu-Z</groupId>
    <artifactId>TableUpdater</artifactId>
@@ -28,6 +36,7 @@ Maven:
 Gradle:
 dependencies {
 	        implementation 'com.github.FlyingYu-Z:TableUpdater:Tag'
+	        implementation 'mysql:mysql-connector-java:8.0.23'
 	}
 
 ````

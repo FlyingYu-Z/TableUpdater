@@ -6,26 +6,27 @@ import java.sql.*;
 
 
 public class JDBCUtils {
-    
+
     static {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException classNotFoundException) {
-                classNotFoundException.printStackTrace();
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+
             }
         }
     }
-    
+
     public static Connection getConnection(ReadyCore readyCore) throws Exception {
         Connection connection = DriverManager.getConnection(readyCore.getReady().getDbUrl(), readyCore.getReady().getUserName(), readyCore.getReady().getPassWord());
         return connection;
     }
-    
-    
+
+
     public static void closeResource(ResultSet resultSet, Statement statement, Connection connection) {
         closeResultSet(resultSet);
         closeStatement(statement);
@@ -33,11 +34,11 @@ public class JDBCUtils {
     }
 
 
-    public static void closeResource(ResultSet resultSet,Statement statement) {
+    public static void closeResource(ResultSet resultSet, Statement statement) {
         closeResultSet(resultSet);
         closeStatement(statement);
     }
-    
+
     public static void closeResource(Statement statement, Connection connection) {
         closeStatement(statement);
         closeConnection(connection);
